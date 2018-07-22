@@ -1,11 +1,67 @@
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>edus44</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>edus44 games</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" rel="stylesheet">
+
+  <style>
+    body,html{
+      margin:0;
+      padding:0;
+    }
+    body{
+      font-family: 'Nunito', sans-serif;
+      color:rgb(20, 16, 14);
+    }
+  </style>
 </head>
 <body>
-    edus44
+  <div id="app"></div>
+  
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+Vue.component('Item',{
+  template:`
+    <div>
+      <b>{{name}}</b>
+    </div>
+  `,
+  props:['name']
+})
+
+const ghPage = 'http://edus44.github.io/games'
+const ghGame = 'https://github.com/edus44/games/tree/master'
+const gh = 'https://github.com/edus44'
+
+new Vue({
+  template:`
+    <div>
+      <h1>Eduardo Hidalgo</h1>
+      <h2>edus44</h2>
+      <i class="fab fa-github"></i>
+      <Item v-for="item in items" v-bind="item" :key="item.name" />
+    </div>
+  `,
+  el: '#app',
+  data:{
+    items:[
+      { 
+        name: 'Absolutas Idioteces', 
+        link: `${ghPage}/absolutasidioteces`,
+        src: `${ghGame}/absolutasidioteces`,
+        img: 'https://dummyimage.com/200x100'
+      },
+    ]
+  }
+})
+
+Vue.config.productionTip = false
+
+</script>
+
 </body>
 </html>
