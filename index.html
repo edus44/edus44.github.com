@@ -11,15 +11,53 @@
     body,html{
       margin:0;
       padding:0;
+      font-size:10px;
+      text-align: center;
     }
     body{
       font-family: 'Nunito', sans-serif;
       color:rgb(20, 16, 14);
     }
+    h1 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 3rem;
+    }
+    .links a{
+      color:rgb(20, 16, 14);
+      text-decoration:none;
+      display:inline-block;
+      margin: 0 1rem;
+      font-size:1.3rem;
+      font-weight: bold;
+    }
+    .links a:hover{
+      color: rgb(28, 160, 149); 
+    }
   </style>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">
+    <h1>Eduardo Hidalgo</h1>
+    <div class="links">
+      <a href="https://github.com/edus44">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/edus44">
+        <i class="fab fa-github"></i>
+        edus44
+      </a>
+    </div>
+    
+    <a @click="folded = !folded" >
+      See games
+      <i class="fas" :class="folded?'fa-sort-up':'fa-sort-down'" ></i>
+    </a>
+    <div v-if="folded">
+      <Item v-for="item in items" v-bind="item" :key="item.name" />
+    </div>
+  </div>
   
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
@@ -27,33 +65,92 @@
 Vue.component('Item',{
   template:`
     <div>
-      <b>{{name}}</b>
+      <a :href="link">
+        <b>{{name}}</b>
+      </a>
+      
+      <a :href="src">
+        <i class="fas fa-code"></i>
+      </a>
     </div>
   `,
-  props:['name']
+  props:['name','src','link']
 })
 
 const ghPage = 'http://edus44.github.io/games'
 const ghGame = 'https://github.com/edus44/games/tree/master'
 const gh = 'https://github.com/edus44'
+const dummyImg = 'https://dummyimage.com/30x50'
 
 new Vue({
-  template:`
-    <div>
-      <h1>Eduardo Hidalgo</h1>
-      <h2>edus44</h2>
-      <i class="fab fa-github"></i>
-      <Item v-for="item in items" v-bind="item" :key="item.name" />
-    </div>
-  `,
   el: '#app',
   data:{
+    folded:false,
     items:[
       { 
         name: 'Absolutas Idioteces', 
         link: `${ghPage}/absolutasidioteces`,
         src: `${ghGame}/absolutasidioteces`,
-        img: 'https://dummyimage.com/200x100'
+      },
+      { 
+        name: 'Código Secreto', 
+        link: `${ghPage}/codigo-secreto`,
+        src: `${ghGame}/codigo-secreto`,
+      },
+      { 
+        name: 'Party & Co', 
+        link: `${ghPage}/party`,
+        src: `${ghGame}/party`,
+      },
+      { 
+        name: 'Snake II 2 player', 
+        link: `${ghPage}/snake2-vue`,
+        src: `${ghGame}/snake2-vue`,
+      },
+      { 
+        name: 'Snake II', 
+        link: `${ghPage}/snake2`,
+        src: `${ghGame}/snake2`,
+      },
+      { 
+        name: 'Tetris', 
+        link: `${ghPage}/tetris`,
+        src: `${ghGame}/tetris`,
+      },
+      { 
+        name: 'Dardos', 
+        link: `${ghPage}/dardos`,
+        src: `${ghGame}/dardos`,
+      },
+      { 
+        name: 'Rocket Soccer', 
+        link: `${ghPage}/rocket-soccer`,
+        src: `${ghGame}/rocket-soccer`,
+      },
+      { 
+        name: 'Reversi', 
+        link: `${ghPage}/reversi`,
+        src: `${ghGame}/reversi`,
+      },
+      { 
+        name: 'Conecta4', 
+        link: `${ghPage}/conecta4`,
+        src: `${ghGame}/conecta4`,
+      },
+      { 
+        name: 'Adder', 
+        link: `${ghPage}/adder`,
+        src: `${ghGame}/adder`,
+      },
+      { 
+        name: 'Lens', 
+        link: `${ghPage}/lens`,
+        src: `${ghGame}/lens`,
+      },
+      { 
+        name: 'Volei', 
+        link: `${ghPage}/volei`,
+        src: `${ghGame}/volei`,
       },
     ]
   }
