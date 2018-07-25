@@ -6,68 +6,28 @@ const ghGame = 'https://github.com/edus44/games/tree/master'
 
 export default [
   { 
-    name: 'Absolutas Idioteces', 
-    link: `${ghPage}/absolutasidioteces`,
-    src: `${ghGame}/absolutasidioteces`,
+    name: 'Wakenator', 
+    link: `${ghPage}/Wakenator`,
+    src: `${ghGame}/Wakenator`,
   },
   { 
-    name: 'Código Secreto', 
-    link: `${ghPage}/codigo-secreto`,
-    src: `${ghGame}/codigo-secreto`,
+    name: 'express-deliver', 
+    link: `${ghPage}/express-deliver`,
+    src: `${ghGame}/express-deliver`,
   },
   { 
-    name: 'Party & Co', 
-    link: `${ghPage}/party`,
-    src: `${ghGame}/party`,
+    name: 'Troncast', 
+    link: `${ghPage}/Troncast`,
+    src: `${ghGame}/Troncast`,
   },
   { 
-    name: 'Snake II 2 player', 
-    link: `${ghPage}/snake2-vue`,
-    src: `${ghGame}/snake2-vue`,
+    name: 'applivery-store', 
+    link: `${ghPage}/applivery-store`,
+    src: `${ghGame}/applivery-store`,
   },
   { 
-    name: 'Snake II', 
-    link: `${ghPage}/snake2`,
-    src: `${ghGame}/snake2`,
-  },
-  { 
-    name: 'Tetris', 
-    link: `${ghPage}/tetris`,
-    src: `${ghGame}/tetris`,
-  },
-  { 
-    name: 'Dardos', 
-    link: `${ghPage}/dardos`,
-    src: `${ghGame}/dardos`,
-  },
-  { 
-    name: 'Rocket Soccer', 
-    link: `${ghPage}/rocket-soccer`,
-    src: `${ghGame}/rocket-soccer`,
-  },
-  { 
-    name: 'Reversi', 
-    link: `${ghPage}/reversi`,
-    src: `${ghGame}/reversi`,
-  },
-  { 
-    name: 'Conecta4', 
-    link: `${ghPage}/conecta4`,
-    src: `${ghGame}/conecta4`,
-  },
-  { 
-    name: 'Adder', 
-    link: `${ghPage}/adder`,
-    src: `${ghGame}/adder`,
-  },
-  { 
-    name: 'Lens', 
-    link: `${ghPage}/lens`,
-    src: `${ghGame}/lens`,
-  },
-  { 
-    name: 'Volei', 
-    link: `${ghPage}/volei`,
-    src: `${ghGame}/volei`,
+    name: 'marvel-agent', 
+    link: `${ghPage}/marvel-agent`,
+    src: `${ghGame}/marvel-agent`,
   },
 ]

@@ -11,28 +11,67 @@
       </a>
     </div>
     
-    <a @click="folded = !folded" >
-      See games
-      <i class="fas" :class="folded?'fa-sort-up':'fa-sort-down'" ></i>
-    </a>
-    <div v-if="folded">
-      <Project v-for="project in projects" v-bind="project" :key="project.name" />
+    <div class="groups">
+      <a 
+        v-for="group in groups" :key="group.id" 
+        :href="`#${selected == group.id ? '' : group.id}`" 
+        :class="{active: selected == group.id}"
+      >
+        {{ group.name }}
+        <div class="icon">
+        <i class="fas fa-chevron-down" ></i>
+        </div>
+      </a>
     </div>
+
+    <template v-for="group in groups">
+      <div v-if="selected == group.id" :key="group.id+'list'">
+        <Item 
+          v-for="item in group.items" 
+          v-bind="item" 
+          :key="item.name" 
+        />
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
 import projects from './projects'
-import Project from './Project'
+import games from './games'
+import Item from './Item'
 
 export default {
   components: {
-    Project,
+    Item,
   },
   data: () => ({
-    folded: false,
-    projects,
+    selected: '',
+    groups: [
+      {
+        id: 'games',
+        name: 'games',
+        items: games,
+      },
+      {
+        id: 'projects',
+        name: 'projects',
+        items: projects,
+      },
+    ],
   }),
+  mounted() {
+    window.addEventListener('hashchange', this.syncHash, false)
+    setTimeout(this.syncHash, 100)
+  },
+  methods: {
+    syncHash() {
+      const id = location.hash.replace('#', '')
+
+      const exists = this.groups.some(group => group.id == id)
+      this.selected = exists ? id : ''
+    },
+  },
 }
 </script>
 
@@ -43,6 +82,7 @@ html {
   padding: 0;
   font-size: 10px;
   text-align: center;
+  cursor: default;
 }
 body {
   font-family: 'Nunito', sans-serif;
@@ -59,10 +99,48 @@ h1 {
   text-decoration: none;
   display: inline-block;
   margin: 0 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
+  transition: 0.2s;
 }
 .links a:hover {
   color: rgb(28, 160, 149);
+}
+
+.groups {
+  margin: 4rem 0;
+}
+
+.groups a {
+  color: rgb(20, 16, 14);
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: 0.4s;
+}
+
+.groups a:hover {
+  color: rgb(28, 160, 149);
+}
+.groups a.active {
+  color: rgb(28, 160, 149);
+}
+
+.groups a .icon {
+  transition: 0.4s transform;
+  margin-top: 0.5rem;
+}
+.groups a.active .icon {
+  transform: translateY(10px);
+}
+
+.groups a i {
+  font-size: 2rem;
+  transition: 0.6s transform;
+}
+.groups a.active i {
+  transform: rotate(-180deg);
 }
 </style>
