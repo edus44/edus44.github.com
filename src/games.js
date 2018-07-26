@@ -8,7 +8,7 @@ export default [
   { 
     name: 'Código Secreto', 
     link: `http://codigosecreto.surge.sh`,
-    src: `${gh}/codigo-secreto`,
+    // src: `${gh}/codigo-secreto`,
   },
   { 
     name: 'Party & Co', 
@@ -42,8 +42,8 @@ export default [
   },
   { 
     name: 'Rocket Soccer', 
-    link: `${gh}/rocket-soccer`,
-    src: `http://rocket-soccer.surge.sh`,
+    link: `http://rocket-soccer.surge.sh`,
+    src: `${gh}/rocket-soccer`,
   },
   { 
     name: 'Reversi', 
