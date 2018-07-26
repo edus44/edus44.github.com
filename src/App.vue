@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Eduardo Hidalgo</h1>
+    <!-- <h1>Eduardo Hidalgo</h1>
     <div class="links">
       <a href="https://github.com/edus44">
         <i class="fab fa-linkedin-in"></i>
@@ -9,7 +9,7 @@
         <i class="fab fa-github"></i>
         edus44
       </a>
-    </div>
+    </div> -->
     
     <div class="groups">
       <a 
@@ -24,15 +24,29 @@
       </a>
     </div>
 
-    <template v-for="group in groups">
-      <div v-if="selected == group.id" :key="group.id+'list'">
-        <Item 
-          v-for="item in group.items" 
-          v-bind="item" 
-          :key="item.name" 
-        />
-      </div>
-    </template>
+    <!-- <template v-for="group in groups"> -->
+      <!-- <div v-if="selected == group.id" :key="group.id+'list'"> -->
+        <transition-group
+          name="fade"
+          :appear="true"
+          @before-enter="beforeEnter"
+          @after-enter="afterEnter"
+          @before-leave="beforeLeave"
+          @after-leave="afterEnter"
+          tag="div"
+          class="items"
+
+        >
+          <Item 
+            v-for="(item,index) in selectedItems" 
+            v-bind="item" 
+            :key="item.name"
+            :data-index="index"
+            :data-len="selectedItems.length"
+          />
+        </transition-group>
+      <!-- </div> -->
+    <!-- </template> -->
   </div>
 </template>
 
@@ -50,16 +64,22 @@ export default {
     groups: [
       {
         id: 'games',
-        name: 'games',
+        name: 'groupA',
         items: games,
       },
       {
         id: 'projects',
-        name: 'projects',
+        name: 'groupB',
         items: projects,
       },
     ],
   }),
+  computed: {
+    selectedItems() {
+      const group = this.groups.find(x => x.id == this.selected)
+      return group ? group.items : []
+    },
+  },
   mounted() {
     window.addEventListener('hashchange', this.syncHash, false)
     setTimeout(this.syncHash, 100)
@@ -70,6 +90,15 @@ export default {
 
       const exists = this.groups.some(group => group.id == id)
       this.selected = exists ? id : ''
+    },
+    beforeEnter(el) {
+      el.style.transitionDelay = el.dataset.index * 50 + 'ms'
+    },
+    afterEnter(el) {
+      el.style.transitionDelay = '0ms'
+    },
+    beforeLeave(el) {
+      el.style.transitionDelay = el.dataset.len - el.dataset.index * 50 + 'ms'
     },
   },
 }
@@ -142,5 +171,9 @@ h1 {
 }
 .groups a.active i {
   transform: rotate(-180deg);
+}
+
+.items {
+  perspective: 800px;
 }
 </style>
