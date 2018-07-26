@@ -107,7 +107,6 @@ export default {
 
 .groups a {
   color: rgb(20, 16, 14);
-  text-decoration: none;
   display: inline-block;
   margin: 0 1rem;
   font-size: 1.3rem;
@@ -120,9 +119,9 @@ export default {
 }
 
 .groups a .icon {
-  transition: 0.4s transform;
+  transition: 0.4s;
   margin-top: 0.5rem;
-  font-size:1rem;
+  font-size: 1rem;
 }
 .groups a.active .icon {
   transform: translateY(6px);
@@ -134,9 +133,10 @@ export default {
 .groups a.active i {
   transform: scale(1.6);
 }
-.items{
-  position:absolute;
-  left:0;
-  width:100%;
+
+.items {
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 </style>

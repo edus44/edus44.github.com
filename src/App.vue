@@ -29,10 +29,14 @@ export default {
 
 <style>
 * {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   user-select: none;
+}
+a{
+  text-decoration: none;
+  outline: none;
 }
 
 body,
@@ -63,7 +67,6 @@ h2 {
 }
 .links a {
   color: rgb(20, 16, 14);
-  text-decoration: none;
   display: inline-block;
   margin: 0 1rem;
   font-size: 1.4rem;

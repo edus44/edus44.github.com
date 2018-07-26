@@ -1,19 +1,14 @@
 
 const ghPage = 'http://edus44.github.io/games'
 const ghGame = 'https://github.com/edus44/games/tree/master'
-// const gh = 'https://github.com/edus44'
+const gh = 'https://github.com/edus44'
 // const dummyImg = 'https://dummyimage.com/30x50'
 
 export default [
   { 
-    name: 'Absolutas Idioteces', 
-    link: `${ghPage}/absolutasidioteces`,
-    src: `${ghGame}/absolutasidioteces`,
-  },
-  { 
     name: 'Código Secreto', 
-    link: `${ghPage}/codigo-secreto`,
-    src: `${ghGame}/codigo-secreto`,
+    link: `http://codigosecreto.surge.sh`,
+    src: `${gh}/codigo-secreto`,
   },
   { 
     name: 'Party & Co', 
@@ -21,9 +16,14 @@ export default [
     src: `${ghGame}/party`,
   },
   { 
-    name: 'Snake II 2 player', 
-    link: `${ghPage}/snake2-vue`,
-    src: `${ghGame}/snake2-vue`,
+    name: 'Absolutas Idioteces', 
+    link: `http://absolutasidioteces.surge.sh/`,
+    src: `${ghGame}/absolutasidioteces`,
+  },
+  { 
+    name: 'Snake II - 2 player', 
+    link: `http://snake2.surge.sh`,
+    src: `${gh}/snake-ii-vue`,
   },
   { 
     name: 'Snake II', 
@@ -42,8 +42,8 @@ export default [
   },
   { 
     name: 'Rocket Soccer', 
-    link: `${ghPage}/rocket-soccer`,
-    src: `${ghGame}/rocket-soccer`,
+    link: `${gh}/rocket-soccer`,
+    src: `http://rocket-soccer.surge.sh`,
   },
   { 
     name: 'Reversi', 
