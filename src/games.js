@@ -62,7 +62,7 @@ export default [
   },
   { 
     name: 'Lens', 
-    link: `${ghPage}/lens`,
+    link: `${ghPage}/lens/demo2`,
     src: `${ghGame}/lens`,
   },
   { 
