@@ -124,6 +124,7 @@ export default {
   font-size: 1rem;
 }
 .groups a.active .icon {
+  color: rgb(28, 160, 149);
   transform: translateY(6px);
 }
 

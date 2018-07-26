@@ -9,7 +9,7 @@
         Open <i class="fas fa-external-link-alt"></i>
       </a>
 
-      <a :href="src" target="_blank">
+      <a :href="src" target="_blank" v-if="src">
         Source <i class="fas fa-code"></i>
       </a>
     </div>
