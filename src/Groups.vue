@@ -13,28 +13,29 @@
         </div>
       </a>
     </div>
+    <div class="items-box">
+      <transition-group
+        name="fade"
+        :appear="true"
+        @before-enter="beforeEnter"
+        @after-enter="afterEnter"
+        @before-leave="beforeLeave"
+        @after-leave="afterEnter"
+        tag="div"
+        class="items"
 
-    <transition-group
-      name="fade"
-      :appear="true"
-      @before-enter="beforeEnter"
-      @after-enter="afterEnter"
-      @before-leave="beforeLeave"
-      @after-leave="afterEnter"
-      tag="div"
-      class="items"
-
-    >
-      <Item 
-        v-for="(item,index) in selectedItems" 
-        v-bind="item" 
-        :key="item.name"
-        :data-index="index"
-        :data-len="selectedItems.length"
-        :active="index==activeItem"
-        @toggle="toggle(index)"
-      />
-    </transition-group>
+      >
+        <Item 
+          v-for="(item,index) in selectedItems" 
+          v-bind="item" 
+          :key="item.name"
+          :data-index="index"
+          :data-len="selectedItems.length"
+          :active="index==activeItem"
+          @toggle="toggle(index)"
+        />
+      </transition-group>
+    </div>
 
   </div>
 </template>
@@ -136,8 +137,11 @@ export default {
   transform: rotate(-180deg);
 }
 
+.items-box {
+  perspective: 1000px;
+}
 .items {
-  perspective: 800px;
-  /* transform: rotateX(-10deg) rotateY(-10deg) rotate(-2deg); */
+  /* transform: rotateX(-10deg) rotateY(10deg); */
+  perspective: inherit;
 }
 </style>
