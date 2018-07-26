@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <h1>Eduardo Hidalgo</h1>
+    <h1>Eduardo Hidalgo</h1>
     <div class="links">
       <a href="https://github.com/edus44">
         <i class="fab fa-linkedin-in"></i>
@@ -9,7 +9,7 @@
         <i class="fab fa-github"></i>
         edus44
       </a>
-    </div> -->
+    </div>
     
     <div class="groups">
       <a 
@@ -24,29 +24,26 @@
       </a>
     </div>
 
-    <!-- <template v-for="group in groups"> -->
-      <!-- <div v-if="selected == group.id" :key="group.id+'list'"> -->
-        <transition-group
-          name="fade"
-          :appear="true"
-          @before-enter="beforeEnter"
-          @after-enter="afterEnter"
-          @before-leave="beforeLeave"
-          @after-leave="afterEnter"
-          tag="div"
-          class="items"
+    <transition-group
+      name="fade"
+      :appear="true"
+      @before-enter="beforeEnter"
+      @after-enter="afterEnter"
+      @before-leave="beforeLeave"
+      @after-leave="afterEnter"
+      tag="div"
+      class="items"
 
-        >
-          <Item 
-            v-for="(item,index) in selectedItems" 
-            v-bind="item" 
-            :key="item.name"
-            :data-index="index"
-            :data-len="selectedItems.length"
-          />
-        </transition-group>
-      <!-- </div> -->
-    <!-- </template> -->
+    >
+      <Item 
+        v-for="(item,index) in selectedItems" 
+        v-bind="item" 
+        :key="item.name"
+        :data-index="index"
+        :data-len="selectedItems.length"
+      />
+    </transition-group>
+
   </div>
 </template>
 
@@ -63,14 +60,14 @@ export default {
     selected: '',
     groups: [
       {
-        id: 'games',
-        name: 'groupA',
-        items: games,
+        id: 'projects',
+        name: 'projects',
+        items: projects,
       },
       {
-        id: 'projects',
-        name: 'groupB',
-        items: projects,
+        id: 'games',
+        name: 'games',
+        items: games,
       },
     ],
   }),
@@ -98,7 +95,7 @@ export default {
       el.style.transitionDelay = '0ms'
     },
     beforeLeave(el) {
-      el.style.transitionDelay = el.dataset.len - el.dataset.index * 50 + 'ms'
+      el.style.transitionDelay = (el.dataset.len - el.dataset.index) * 50 + 'ms'
     },
   },
 }
