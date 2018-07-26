@@ -1,9 +1,7 @@
 <template>
   <div class="item" :class="{active}" @click="$emit('toggle')">
     <!-- <a :href="link"> -->
-    <a>
-      <b>{{name}}</b>
-    </a>
+    <b>{{name}}</b>
 
     <p >
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, at cumque, neque earum unde quas eligendi vero magni aperiam similique optio, quia magnam totam hic doloremque tempora modi ut fuga!
@@ -24,28 +22,26 @@ export default {
 <style>
 .item {
   /* background-color: #eee; */
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
   width: 300px;
   margin: 15px auto;
   padding: 10px 0;
-  transform-style: preserve-3d;
-  /* transform: rotateX(-10deg) rotateY(-10deg) rotate(-2deg); */
   transition: 0.5s;
   cursor: pointer;
-  height: 1.5rem;
+  height: 2rem;
   overflow: hidden;
-}
-.item:hover {
+  text-align: left
 }
 .item.active {
   border-bottom-color: rgb(28, 160, 149);
   height: 8rem;
-  /* transform: scale(1.06) translateZ(0) rotateY(-10deg) rotateX(-10deg) rotate(2deg) translateX(-5px); */
-  /* transform: rotateX(-10deg) rotateY(-10deg) rotate(-2deg) translateX(10px) translateZ(30px); */
 }
-.item a {
-  text-decoration: none;
-  color: black;
+
+.item b{
+  font-size: 1.4rem;
+}
+.item.active b{
+  color: rgb(28, 160, 149);
 }
 
 .fade-enter-active,
@@ -54,19 +50,10 @@ export default {
 }
 .fade-enter {
   opacity: 0;
-  transform: rotateX(-90deg);
+  transform: translateY(10px);
 }
 .fade-leave-to {
   opacity: 0;
-  transform: rotateX(90deg);
-}
-
-/* .fade-leave-to {
-  opacity: 0;
-  transform: translateY(-30px) rotateX(-90deg) translateZ(300px);
-} */
-
-.fade-move {
-  display: none;
+  transform: translateY(-10px);
 }
 </style>

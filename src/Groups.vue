@@ -13,29 +13,30 @@
         </div>
       </a>
     </div>
-    <div class="items-box">
-      <transition-group
-        name="fade"
-        :appear="true"
-        @before-enter="beforeEnter"
-        @after-enter="afterEnter"
-        @before-leave="beforeLeave"
-        @after-leave="afterEnter"
-        tag="div"
-        class="items"
 
-      >
-        <Item 
-          v-for="(item,index) in selectedItems" 
-          v-bind="item" 
-          :key="item.name"
-          :data-index="index"
-          :data-len="selectedItems.length"
-          :active="index==activeItem"
-          @toggle="toggle(index)"
-        />
-      </transition-group>
-    </div>
+    <transition-group
+      name="fade"
+      :appear="true"
+      @before-enter="beforeEnter"
+      @after-enter="afterEnter"
+      @before-leave="beforeLeave"
+      @after-leave="afterEnter"
+      tag="div"
+      class="items"
+      v-for="group in groups"
+      :key="group.id+'list'"
+    >
+      <Item 
+        v-if="selected == group.id"
+        v-for="(item,index) in group.items" 
+        v-bind="item" 
+        :key="item.name"
+        :data-index="index"
+        :data-len="group.items.length"
+        :active="index==activeItem"
+        @toggle="toggle(index)"
+      />
+    </transition-group>
 
   </div>
 </template>
@@ -101,7 +102,7 @@ export default {
 
 <style>
 .groups {
-  margin: 4rem 0;
+  margin: 6rem 0 3rem;
 }
 
 .groups a {
@@ -109,14 +110,11 @@ export default {
   text-decoration: none;
   display: inline-block;
   margin: 0 1rem;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: bold;
   transition: 0.4s;
 }
 
-.groups a:hover {
-  color: rgb(28, 160, 149);
-}
 .groups a.active {
   color: rgb(28, 160, 149);
 }
@@ -124,24 +122,21 @@ export default {
 .groups a .icon {
   transition: 0.4s transform;
   margin-top: 0.5rem;
+  font-size:1rem;
 }
 .groups a.active .icon {
-  transform: translateY(10px);
+  transform: translateY(6px);
 }
 
 .groups a i {
-  font-size: 2rem;
   transition: 0.6s transform;
 }
 .groups a.active i {
-  transform: rotate(-180deg);
+  transform: scale(1.6);
 }
-
-.items-box {
-  perspective: 1000px;
-}
-.items {
-  /* transform: rotateX(-10deg) rotateY(10deg); */
-  perspective: inherit;
+.items{
+  position:absolute;
+  left:0;
+  width:100%;
 }
 </style>

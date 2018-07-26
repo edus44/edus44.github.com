@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <!-- <h1>Eduardo Hidalgo</h1>
+    <h1>Eduardo Hidalgo</h1>
+    <h2>web software engineer</h2>
     <div class="links">
-      <a href="https://github.com/edus44">
+      <a href="https://www.linkedin.com/in/eduardohidalgoh">
         <i class="fab fa-linkedin-in"></i>
       </a>
       <a href="https://github.com/edus44">
         <i class="fab fa-github"></i>
         edus44
       </a>
-    </div> -->
+    </div> 
     
     <Groups/>
 
@@ -27,6 +28,13 @@ export default {
 </script>
 
 <style>
+* {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 body,
 html {
   margin: 0;
@@ -40,10 +48,18 @@ body {
   color: rgb(20, 16, 14);
 }
 h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-top: 3rem;
+  margin-top: 5rem;
+  margin-bottom: 0;
+}
+h2 {
+  margin: 0;
+  font-weight: normal;
+}
+.links {
+  margin-top: 2rem;
 }
 .links a {
   color: rgb(20, 16, 14);
