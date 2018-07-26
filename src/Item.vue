@@ -1,35 +1,44 @@
 <template>
-  <div class="item">
-    <a :href="link">
+  <div class="item" :class="{active}" @click="$emit('toggle')">
+    <!-- <a :href="link"> -->
+    <a>
       <b>{{name}}</b>
     </a>
+
+    <p >
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel, at cumque, neque earum unde quas eligendi vero magni aperiam similique optio, quia magnam totam hic doloremque tempora modi ut fuga!
+    </p>
     
-    <a :href="src">
+    <!-- <a :href="src">
       <i class="fas fa-code"></i>
-    </a>
+    </a> -->
   </div>
 </template>
 
 <script>
 export default {
-  props: ['name', 'src', 'link'],
+  props: ['name', 'src', 'link', 'active'],
 }
 </script>
 
 <style>
 .item {
-  background-color: #ddd;
+  background-color: #eee;
   width: 300px;
-  margin: 10px auto;
+  margin: 15px auto;
   padding: 10px 0;
   transform-style: preserve-3d;
   transform: rotateX(-10deg) rotateY(-10deg) rotate(-2deg);
   transition: 0.5s;
   cursor: pointer;
+  height: 1.5rem;
+  overflow: hidden;
 }
 .item:hover {
-  transition: 0.15s;
-  transform: scale(1.1) rotateX(-5deg) rotateY(-5deg) rotate(-1deg);
+}
+.item.active {
+  height: 8rem;
+  transform: rotateX(-10deg) rotateY(-10deg) rotate(-2deg) translateX(10px) translateZ(30px);
 }
 .item a {
   text-decoration: none;
@@ -48,6 +57,6 @@ export default {
 }
 
 .fade-move {
-  display: none;
+  /* display: none; */
 }
 </style>
