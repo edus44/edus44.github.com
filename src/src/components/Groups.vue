@@ -1,15 +1,15 @@
 <template>
   <div>
-    
     <div class="groups">
-      <a 
-        v-for="group in groups" :key="group.id" 
-        :href="`#${selected == group.id ? '' : group.id}`" 
-        :class="{active: selected == group.id}"
+      <a
+        v-for="group in groups"
+        :key="group.id"
+        :href="`#${selected == group.id ? '' : group.id}`"
+        :class="{ active: selected == group.id }"
       >
         {{ group.name }}
         <div class="icon">
-        <i class="fas fa-chevron-down" ></i>
+          <i class="fas fa-chevron-down"></i>
         </div>
       </a>
     </div>
@@ -24,27 +24,27 @@
       tag="div"
       class="items"
       v-for="group in groups"
-      :key="group.id+'list'"
+      :key="group.id + 'list'"
     >
-      <Item 
-        v-if="selected == group.id"
-        v-for="(item,index) in group.items" 
-        v-bind="item" 
-        :key="item.name"
-        :data-index="index"
-        :data-len="group.items.length"
-        :active="index==activeItem"
-        @toggle="toggle(index)"
-      />
+      <template v-if="selected == group.id">
+        <Item
+          v-for="(item, index) in group.items"
+          v-bind="item"
+          :key="item.name"
+          :data-index="index"
+          :data-len="group.items.length"
+          :active="index == activeItem"
+          @toggle="toggle(index)"
+        />
+      </template>
     </transition-group>
-
   </div>
 </template>
 
 <script>
-import projects from './projects'
-import games from './games'
-import Item from './Item'
+import projects from '../lib/projects'
+import games from '../lib/games'
+import Item from './Item.vue'
 
 export default {
   components: {

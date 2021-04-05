@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Eduardo Hidalgo</h1>
-    <h2>web software engineer</h2>
+    <h2>software engineer</h2>
     <div class="links">
       <a href="https://www.linkedin.com/in/eduardohidalgoh">
         <i class="fab fa-linkedin-in"></i>
@@ -10,15 +10,14 @@
         <i class="fab fa-github"></i>
         edus44
       </a>
-    </div> 
-    
-    <Groups/>
+    </div>
 
+    <Groups />
   </div>
 </template>
 
 <script>
-import Groups from './Groups'
+import Groups from './components/Groups.vue'
 
 export default {
   components: {
@@ -34,7 +33,7 @@ export default {
   -webkit-user-select: none;
   user-select: none;
 }
-a{
+a {
   text-decoration: none;
   outline: none;
 }

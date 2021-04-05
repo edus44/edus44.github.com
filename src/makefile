@@ -1,7 +1,6 @@
-all:
-	vue serve --open
 build:
 	cd .. && ls | grep -v src | xargs -r rm -r
-	vue build
+	cd src
+	yarn build
 	mv dist/* ..
 	rm -r dist

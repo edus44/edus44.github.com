@@ -1,16 +1,17 @@
 <template>
-  <div class="item" :class="{active}" >
+  <div class="item" :class="{ active }">
     <!-- <a :href="link"> -->
-    <b @click="$emit('toggle')">{{name}}</b>
+    <b @click="$emit('toggle')">{{ name }}</b>
 
     <div class="item-links">
-
       <a :href="link" target="_blank" v-if="link">
-        Open <i class="fas fa-external-link-alt"></i>
+        Open
+        <i class="fas fa-external-link-alt"></i>
       </a>
 
       <a :href="src" target="_blank" v-if="src">
-        Source <i class="fas fa-code"></i>
+        Source
+        <i class="fas fa-code"></i>
       </a>
     </div>
   </div>
@@ -39,8 +40,8 @@ export default {
 
 .item b {
   font-size: 1.4rem;
-  height:4rem;
-  display:block;
+  height: 4rem;
+  display: block;
   line-height: 4rem;
   transition: 0.5s;
   cursor: pointer;
@@ -50,21 +51,21 @@ export default {
   color: rgb(28, 160, 149);
 }
 
-.item-links{
-  display:flex;
+.item-links {
+  display: flex;
 }
-.item-links a{
+.item-links a {
   font-size: 1.2rem;
-  display:block;
-  flex:1;
+  display: block;
+  flex: 1;
   text-align: center;
   color: rgb(20, 16, 14);
 }
-.item-links a:hover{
+.item-links a:hover {
   color: rgb(28, 160, 149);
 }
-.item-links a i{
-  width:2em;
+.item-links a i {
+  width: 2em;
 }
 
 /* fade animation */
@@ -76,7 +77,7 @@ export default {
   opacity: 0;
   transform: translateY(10px);
 }
-.fade-leave-to {
+.fade-enter-from,.fade-leave-to {
   opacity: 0;
   transform: translateY(-10px);
 }
